@@ -1,0 +1,75 @@
+    body {
+        padding: 0;
+        margin: 0;
+        background-color: black;
+    }
+/*Las medidas vh y vw son medidas relativas de acuerdo al viewport. Vh hace referencia a la 
+    centésima parte de la altura del viewport y vw a la centésima parte del ancho del viewport.
+    1vh = 1% de la altura del viewport
+    100vh = altura del viewport
+    1vw = 1% del ancho del viewport
+    100vw = ancho del viewport
+*/
+    .calculadora {
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        min-height: 100vh;
+        grid-template-columns: repeat(4, 100px);
+        grid-template-rows: minmax(106px, auto) repeat(5, 108px);
+        margin: 5px;
+    }
+
+/*Diseño de buttons*/
+    .calculadora > button {
+        cursor: pointer;
+         font-size: 2rem;
+        border-radius: 10rem;
+        width: 6rem;
+        height:6rem ;
+        border: 1px solid black;
+    }
+
+    .output {
+        margin: none;
+        grid-column: 1/-1;
+        background-color: black;
+        display: flex;
+        align-items: flex-end;
+        justify-items: space-around;
+        flex-direction: column;
+        padding: 10px;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+
+
+
+/*Ventana de salida*/
+.output .display {
+    color: white;
+    font-size: 1.60rem;
+    text-align: right;
+    padding: 5px;
+    height: 79px;
+    margin: -3px;
+    background: black;
+}
+
+
+.calculadora > button:hover {
+    background-color:#8e8e8eed;
+}
+
+.calculadora > .buttonZero {
+    grid-column: 1/3;
+    width: 195px;
+}
+
+
+
+
+
+
+
+
