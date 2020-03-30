@@ -6,17 +6,16 @@ const botonNumeros    = document.getElementsByName('dataNumbre');
 /*Rrealizamos lo miusmo con los operadores*/
 const buttonOperator  = document.getElementsByName('dataOperator');
 const igual           = document.getElementsByName('dataIgual')[0];
-const eliminar        = document.getElementsByName('dataDelete')[0];
-const punto           = document.getElementsByName('dataPunto')[0];
+const botonDelete     = document.getElementsByName('dataDelete')[0];
 
 //capturar el resultado
 var result = document.getElementById('result');
 
 
 //defirnor valriables para ejecutrar las funciones
-var opeActual  = '';
-var opeAnterio = '';
-var operarNumero = '';
+var opeActual  = ' ';
+var opeAnterio = ' ';
+var operarNumero = ' ';
 var operacion = undefined;
 
 //agregar evento onClick 
@@ -34,41 +33,32 @@ buttonOperator.forEach(function(boton){
 })
 
 
-//capturar igual
-igual.forEach(function(boton){
-    boton.addEventListener('click', function(){
-        //creamos metodos de calcular  y acutilizar
-        calcular();
-        actualizarDisplay();
-    })
-})
-//captyurar eliminar 
-eliminar.forEach(function(boton){
-    boton.addEventListener('click', function(){
-        clear();
-        actualizarDisplay();
-    })
-})
+//capturar eliminar y funcion eliminar 
+botonDelete.addEventListener('click', function(){
+    clear();
+    actualizarDisplay();
+});
 
-punto.forEach(function(boton){
-    boton.addEventListener('click', function(){
-        agregarPunto(boton.innerText);   
-        alert(punto.innerText);
-    })
-})
 
 //llamado de los metodos
-
 function agregarNumero(num){
     //cambiamos el valor del texto concatemamos los sting para que asi se vayan colocon "5-6"
     opeActual = opeActual.toString() + num.toString();
     actualizarDisplay(); 
 }
+//capturar igual
+boton.addEventListener('click', function(){
+    //creamos metodos de calcular  y acutilizar
+    calcular();
+    actualizarDisplay();
+});
+
+
 //creamos el metodo de clear lo unico que realizamos en actualizar las variables
 function clear(){
-    opeActual  = '';
-    opeAnterio = '';
-    opeAnterio = undefined;
+    opeActual  = ' ';
+    opeAnterio = ' ';
+    operacion = undefined;
 }
 
 function actualizarDisplay(){
