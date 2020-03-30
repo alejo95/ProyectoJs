@@ -47,11 +47,53 @@ function agregarNumero(num){
     actualizarDisplay(); 
 }
 //capturar igual
-boton.addEventListener('click', function(){
+igual.addEventListener('click', function(){
     //creamos metodos de calcular  y acutilizar
     calcular();
     actualizarDisplay();
 });
+
+//calcular la operación
+
+function agregarOperador (op){
+    if(opeActual === '') return;
+    if(opeAnterio !== ''){
+        calcular()
+    }
+    operacion =op.toString();
+    opeAnterio = opeActual;
+    opeActual = '';
+}
+
+function calcular(){
+    var calculo;
+    const anterior = parseFloat(opeActual);
+    const actual = parseFloat(opeAnterio);
+
+    //si son numerocos
+    if(isNaN(anterior) || isNaN(actual)) return;
+    switch(operacion){
+        case '+':
+            calculo = anterior + actual;
+            break;
+        case '-':
+            calculo = anterior - actual;
+            break;
+        case 'x':
+            calculo = anterior * actual;
+            break;
+        case '/':
+            calculo = anterior / actual;
+            break;
+        case '%':
+            calculo = anterior * (actual/100);
+            break;
+        
+    }
+    opeActual = calculo;
+    operacion = undefined;
+    opeAnterio = '';
+}
 
 
 //creamos el metodo de clear lo unico que realizamos en actualizar las variables
